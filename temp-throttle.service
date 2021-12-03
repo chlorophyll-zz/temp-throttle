@@ -1,0 +1,8 @@
+[Unit]
+Description=Throttle CPU Frequency Service
+
+[Service]
+ExecStart=/usr/sbin/temp-throttle 55 57
+
+[Install]
+WantedBy=multi-user.target
