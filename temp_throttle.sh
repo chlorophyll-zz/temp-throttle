@@ -25,21 +25,19 @@ err_exit () {
 	exit 128
 }
 
-if [ $# -ne 1 ]; then
+if [ $# -ne 2 ]; then
 	# If temperature wasn't given, then print a message and exit.
-	echo "Please supply a maximum desired temperature in Celsius." 1>&2
+	echo "Please supply a maximum and minimum desired temperature in Celsius." 1>&2
 	echo "For example:  ${0} 60" 1>&2
 	exit 2
 else
 	#Set the first argument as the maximum desired temperature.
 	MAX_TEMP=$1
+	LOW_TEMP=$2
 fi
 
 
 ### START Initialize Global variables.
-
-# The frequency will increase when low temperature is reached.
-LOW_TEMP=$((MAX_TEMP - 5))
 
 CORES=$(nproc) # Get number of CPU cores.
 echo -e "Number of CPU cores detected: $CORES\n"
